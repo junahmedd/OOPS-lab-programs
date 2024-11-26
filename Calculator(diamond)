@@ -1,24 +1,25 @@
 // Interface for Addition
 interface Addition {
     // Method to perform addition
-    void calculate(int a, int b);
+    void addition(int a, int b);
 }
 
 // Interface for Subtraction
 interface Subtraction {
     // Method to perform subtraction
-    void calculate(int a, int b);
+    void subtract(int a, int b);
 }
 
 // Calculator class implementing both Addition and Subtraction interfaces
 class Calculator implements Addition, Subtraction {
-    // Resolve the diamond problem by implementing calculate for Addition
+    // Implementation of addition method
     @Override
-    public void calculate(int a, int b) {
+    public void addition(int a, int b) {
         System.out.println("Addition result: " + (a + b));
     }
 
-    // Additional method for Subtraction calculation
+    // Implementation of subtraction method
+    @Override
     public void subtract(int a, int b) {
         System.out.println("Subtraction result: " + (a - b));
     }
@@ -42,16 +43,16 @@ class Calculator implements Addition, Subtraction {
 public class Main {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        
-        // Perform addition using calculate method from Addition interface
-        calculator.calculate(10, 5);
-        
-        // Perform subtraction using subtract method
+
+        // Perform addition
+        calculator.addition(10, 5);
+
+        // Perform subtraction
         calculator.subtract(10, 5);
-        
+
         // Perform multiplication
         calculator.multiply(10, 5);
-        
+
         // Perform division
         calculator.divide(10, 5);
     }
